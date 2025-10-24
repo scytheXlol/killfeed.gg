@@ -40,16 +40,16 @@ local Window = Rayfield:CreateWindow({
 
 local Tabs = {
     --Main
-    Home = Window:CreateTab(nil, 'home'),
+    Home = Window:CreateTab("", 'home'),
 
     --Automation
-    Automation = Window:CreateTab(nil, 'cog')
+    Automation = Window:CreateTab("", 'cog'),
 
     --Event
-    Event = Window:CreateTab(nil, 'calendar-fold')
+    Event = Window:CreateTab("", 'calendar-fold'),
 
     --Settings
-    Event = Window:CreateTab(nil, 'settings-2')
+    Event = Window:CreateTab("", 'settings-2')
 }
 
 --[[ Automation ]]--
@@ -80,9 +80,9 @@ local Cases = {
     all     = {"Beggar", "Plodder", "Office Clerk", "Manager", "Director", "Oligarch", "Frozen Heart", "Bubble Gum", "Cats", "Dream", "M5 F90", "Porsche 911", "URUS", "Gold", "Dark", "Palm", "Burj", "Luxury", "Witchy", "Hollow", "Underworld", "Nightmare", "Trash", "Daily", "Starter", "Premium", "15% Pepe", "All In"}
 }
 
-Automation:CreateSection("Automation Case")
+Tabs.Automation:CreateSection("Automation Case")
 
-Automation:CreateDropdown({
+Tabs.Automation:CreateDropdown({
    Name = "Select Case",
    Options = Cases.all,
    CurrentOption = {"Beggar"},
@@ -93,7 +93,7 @@ Automation:CreateDropdown({
    end,
 })
 
-Automation:CreateSlider({
+Tabs.Automation:CreateSlider({
    Name = "Open Quantity",
    Range = {1, 10},
    Increment = 1,
@@ -105,7 +105,7 @@ Automation:CreateSlider({
    end,
 })
 
-Automation:CreateToggle({
+Tabs.Automation:CreateToggle({
    Name = "Auto Open",
    CurrentValue = false,
    Flag = "Automation_AutoOpenValue",
